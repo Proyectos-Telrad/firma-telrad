@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature - Telrad</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/century-gothic" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+
+<body>
+<header>
+    <img src="./Img2/imglogotelrad.png" alt="Telrad" width="300">
+</header>
+
+<main>
+
+<div class="form">
+    <div class="box">
+        <h3>1. Ingresa datos</h3>
+        <p><label>Nombre y apellido</label><input type="text" id="name" placeholder="Ej: Juan Pérez"></p>
+        <p><label>Puesto</label><input type="text" id="role" placeholder="Ej: Gerente de Proyectos"></p>
+        <p><label>Número de contacto / Corporativo</label><input type="text" id="phone" placeholder="Ej: 999 999 999"></p>
+        <p><label>Email</label><input type="email" id="email" placeholder="Ej: juan.perez@telrad.com.pe"></p>
+        <p><label>Dirección Laboral</label><input type="text" id="address" value="Calle Antequera 777, San Isidro - Lima" placeholder="Ej: Av. Javier Prado 123, Lima"></p>
+    </div>
+</div>
+
+<div class="signature">
+    <div class="box">
+        <h3>2. Revisar y copiar</h3>
+
+        <div class="preview">
+            <!-- WRAPPER EXPORT -->
+            <div id="export-wrapper">
+                <div id="signature1">
+                    <!-- CONTENEDOR PRINCIPAL -->
+                    <div style="font-family:'Century Gothic', Helvetica, sans-serif; display: flex; align-items: flex-end; justify-content: space-between; background: #ffffff;">
+
+                        <!-- PARTE IZQUIERDA -->
+                        <div style="display:flex; align-items:flex-end; min-width: 0;">
+                            <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                                <tr>
+                                    <td style="padding-right:20px; vertical-align:middle;">
+                                        <img src="./Img2/imglogotelrad.png" width="300">
+                                    </td>
+                                    <td style="border-left:3px solid #81bd00; padding-left:15px; vertical-align:middle;">
+                                        <div style="padding-top:10px; max-width: 500px; word-wrap: break-word;">
+                                            <!-- NOMBRE -->
+                                            <div style="margin-bottom:10px; font-weight:bold; color:#082e87; font-size:25px; line-height:1.2;">
+                                                <span id="name-1">[Nombre y Apellido]</span>
+                                            </div>
+                                            <!-- CARGO -->
+                                            <div style="margin-bottom:18px; display: flex; align-items: baseline; gap: 8px;">
+                                                <div style="color:#8ec641; font-size:20px; width: 292px;">
+                                                    <span id="role-1">[Cargo]</span>
+                                                </div>
+                                                <span style="color:#8ec641; font-size:20px; white-space: nowrap;"> | Telrad Perú S.A.</span>
+                                            </div>
+                                            <!-- TELÉFONO -->
+                                            <div style="display: flex; align-items: center; gap: 5px; color: #082e87; margin-bottom: 8px;">
+                                                <img src="./Img2/imgtelefono.png" alt="Teléfono" style="width:16px;height:16px;"> 
+                                                <span id="phone-1">[Número]</span>
+                                            </div>
+                                            <!-- CONTENEDOR: DIRECCIÓN + REDES SOCIALES (izquierda) y LOGO ISO (derecha centrado) -->
+                                            <div style="display: flex; align-items: center; gap: 130px;">
+                                                <!-- Columna izquierda: Dirección + Redes Sociales -->
+                                                <div>
+                                                    <!-- DIRECCIÓN -->
+                                                    <div style="display: flex; align-items: center; gap: 5px; white-space: nowrap; color: #082e87; margin-bottom: 10px;">
+                                                        <img src="./Img2/imgsede.png" alt="Dirección" style="width:16px;height:16px;"> 
+                                                        <span id="address-1">Calle Antequera 777, San Isidro - Lima</span>
+                                                    </div>
+                                                    <!-- REDES SOCIALES -->
+                                                    <div>
+                                                        <table cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td style="padding-right:4px;"><img src="./Img2/imglinkeding.png" width="28"></td>
+                                                                <td style="padding-right:4px;"><img src="./Img2/imgfacebook.png" width="28"></td>
+                                                                <td style="padding-right:4px;"><img src="./Img2/inginstagram.png" width="28"></td>
+                                                                <td style="padding-right:8px;"><img src="./Img2/imgtiktok.png" width="28"></td>
+                                                                <td style="font-size:12px; color:#005c96; padding-left:8px;">@telradperusa
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- LOGO ISO -->
+                                                <div style="display: flex; align-items: center;">
+                                                    <img src="./Img2/imgiso.png" width="45">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- PARTE DERECHA - SOLO EL QR -->
+                        <div style="display:flex; align-items:flex-end; flex-shrink:0;">
+                            <div id="qr-container-1" style="width:170px; height:170px; flex-shrink:0;"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- BOTÓN DE DESCARGA - DEBAJO DEL PASO 2, CENTRADO -->
+    <div style="text-align:center; margin-top:25px;">
+        <button id="downloadBtn" class="btn-download">Descargar Firma (.JPG)</button>            
+    </div>
+</div>
+
+<!-- SECCIÓN 3 - INSTRUCCIONES PARA OUTLOOK -->
+<div class="outlook-wrapper">
+    <div class="box outlook-box">
+        <h3>3. Paste in Outlook</h3>
+        <p>Ve a Outlook en escritorio u <a href="https://outlook.com" target="_blank">outlook.com</a></p>
+        <ol>
+            <li>Abrimos un nuevo mensaje de correo</li>
+            <li>En la parte superior seleccionamos "Firma" y agregamos uno nuevo</li>
+            <li>Colocamos un nombre a la firma y pegamos nuestra nueva firma digital</li>
+            <li>Guardar cambios.</li>
+        </ol>
+        <div class="paste">
+            <img src="./Img/Gif2.gif" alt="Paste">
+        </div>
+        <p>¡Listo!</p>
+    </div>
+</div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
