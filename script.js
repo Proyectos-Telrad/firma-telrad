@@ -23,22 +23,16 @@
     var updateTimeout = null;
     var currentQR = null;
 
-    // Función para formatear a título (primera letra de cada palabra en mayúscula)
+    // Función para formatear a título respetando tildes
     function formatTitleCase(str) {
         if (!str) return str;
-        // Convertir todo a minúsculas y luego capitalizar primera letra de cada palabra
-        return str.toLowerCase().replace(/\b\w/g, function(char) {
-            return char.toUpperCase();
-        });
-    }
-
-    // Función específica para nombre (respeta nombres compuestos)
-    function formatName(name) {
-        if (!name) return name;
-        // Convertir a minúsculas y luego capitalizar cada palabra
-        return name.toLowerCase().replace(/\b\w/g, function(char) {
-            return char.toUpperCase();
-        });
+        
+        // Separar la cadena en palabras
+        return str.toLowerCase().split(' ').map(function(word) {
+            if (word.length === 0) return word;
+            // Primera letra en mayúscula, el resto en minúscula (respetando tildes)
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }).join(' ');
     }
 
     function formatPhoneNumber(phone) {
@@ -65,8 +59,7 @@
         
         var cleanPhone = formatPhoneNumber(phone);
         
-        // Formatear nombre y rol
-        var formattedName = formatName(name);
+        var formattedName = formatTitleCase(name);
         var formattedRole = role ? formatTitleCase(role) : "";
         
         var vcardLines = [];
@@ -148,7 +141,7 @@
         if (cells.name1) {
             var nameText = fields.name.value.trim();
             if (nameText) {
-                nameText = formatName(nameText);
+                nameText = formatTitleCase(nameText);
             } else {
                 nameText = "[Nombre y Apellido]";
             }
@@ -161,7 +154,7 @@
             if (roleText) {
                 roleText = formatTitleCase(roleText);
             } else {
-                roleText = "Telrad Perú S.A.";
+                roleText = "";
             }
             cells.role1.innerHTML = roleText;
         }
